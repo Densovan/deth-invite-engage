@@ -132,12 +132,13 @@ function HomeContent() {
               <div className="w-24 h-24 rounded-full border-2 border-khmer-gold flex items-center justify-center mb-8 shadow-[0_0_30px_rgba(212,175,55,0.3)]">
                 <Heart className="w-10 h-10 text-khmer-gold animate-pulse" />
               </div>
-              <h1 className="font-moulpali text-4xl md:text-6xl text-khmer-gold-light mb-4 drop-shadow-lg">
-                ដេត និង ពេជ្រ
-              </h1>
-              <p className="font-suwannaphum text-xl md:text-2xl text-khmer-cream mb-12">
+               <p className="font-suwannaphum text-xl md:text-2xl text-khmer-cream mb-12">
                 សិរីសួស្តីពិធីភ្ជាប់ពាក្យ
               </p>
+              <h1 className="font-moulpali text-4xl md:text-6xl text-khmer-gold-light mb-4 drop-shadow-lg mb-10">
+                ដេត និង ពេជ្រ
+              </h1>
+             
 
               <button 
                 onClick={handleOpenInvitation}
