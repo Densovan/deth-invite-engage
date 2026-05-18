@@ -4,7 +4,7 @@ import { useState, useRef, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import Image from "next/image";
 import { Heart, Calendar, MapPin, Music, Phone, ChevronDown, Music2, User } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Petals from "@/components/ui/Petals";
 import Countdown from "@/components/ui/Countdown";
@@ -59,12 +59,14 @@ export default function Home() {
 function HomeContent() {
   const engagementDate = "2026-06-21T08:00:00";
   const [isPlaying, setIsPlaying] = useState(false);
+  const [isOpened, setIsOpened] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
-    audioRef.current = new Audio("/sounds/គគរង.mp3");
-    audioRef.current.loop = true;
-    
+    const audio = new Audio("/sounds/គគរង.mp3");
+    audio.loop = true;
+    audioRef.current = audio;
+
     return () => {
       if (audioRef.current) {
         audioRef.current.pause();
@@ -72,6 +74,22 @@ function HomeContent() {
       }
     };
   }, []);
+
+  useEffect(() => {
+    if (!isOpened) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }, [isOpened]);
+
+  const handleOpenInvitation = () => {
+    if (audioRef.current) {
+      audioRef.current.play().catch(err => console.error("Playback failed:", err));
+      setIsPlaying(true);
+    }
+    setIsOpened(true);
+  };
 
   const toggleMusic = () => {
     if (!audioRef.current) return;
@@ -86,6 +104,54 @@ function HomeContent() {
 
   return (
     <main className="relative min-h-screen overflow-hidden selection:bg-khmer-gold/30 scroll-smooth">
+      {/* Welcome Overlay */}
+      <AnimatePresence>
+        {!isOpened && (
+          <motion.div 
+            initial={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1.5, ease: "easeInOut" }}
+            className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-khmer-burgundy text-khmer-gold overflow-hidden"
+          >
+            <div className="absolute inset-0 z-0">
+              <Image 
+                src="/images/IMG_2410.JPG"
+                alt="Background"
+                fill
+                className="object-cover opacity-20 blur-sm"
+              />
+              <div className="absolute inset-0 bg-black/40" />
+            </div>
+
+            <motion.div 
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ delay: 0.2, duration: 0.8 }}
+              className="relative z-10 flex flex-col items-center text-center px-6"
+            >
+              <div className="w-24 h-24 rounded-full border-2 border-khmer-gold flex items-center justify-center mb-8 shadow-[0_0_30px_rgba(212,175,55,0.3)]">
+                <Heart className="w-10 h-10 text-khmer-gold animate-pulse" />
+              </div>
+              <h1 className="font-moulpali text-4xl md:text-6xl text-khmer-gold-light mb-4 drop-shadow-lg">
+                ដេត និង ពេជ្រ
+              </h1>
+              <p className="font-suwannaphum text-xl md:text-2xl text-khmer-cream mb-12">
+                សិរីសួស្តីពិធីភ្ជាប់ពាក្យ
+              </p>
+
+              <button 
+                onClick={handleOpenInvitation}
+                className="group relative px-10 py-4 overflow-hidden rounded-full bg-khmer-gold text-khmer-burgundy font-moulpali text-xl transition-all hover:scale-105 shadow-[0_0_30px_rgba(212,175,55,0.3)] hover:shadow-[0_0_50px_rgba(212,175,55,0.6)]"
+              >
+                <span className="relative z-10 flex items-center gap-3">
+                  បើកលិខិតអញ្ជើញ <ChevronDown className="w-5 h-5 -rotate-90 group-hover:translate-x-1 transition-transform" />
+                </span>
+              </button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       <Petals />
       
       {/* Floating Music Button */}

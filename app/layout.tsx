@@ -28,6 +28,25 @@ const moulpali = Moulpali({
 export const metadata: Metadata = {
   title: "សិរីសួស្តីពិធីកាត់ខាន់ស្លា - Engagement Invitation",
   description: "You are invited to our engagement ceremony.",
+  metadataBase: new URL(process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000'),
+  openGraph: {
+    title: "សិរីសួស្តីពិធីកាត់ខាន់ស្លា - Engagement Invitation",
+    description: "You are invited to our engagement ceremony.",
+    images: [
+      {
+        url: "/images/IMG_2407.JPG",
+        width: 1200,
+        height: 630,
+        alt: "Engagement Invitation Thumbnail",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "សិរីសួស្តីពិធីកាត់ខាន់ស្លា - Engagement Invitation",
+    description: "You are invited to our engagement ceremony.",
+    images: ["/images/IMG_2407.JPG"],
+  },
 };
 
 export default function RootLayout({
