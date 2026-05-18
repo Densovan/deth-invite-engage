@@ -38,7 +38,7 @@ function GuestGreeting() {
             <User className="w-7 h-7 text-khmer-gold" />
           </div>
           <p className="font-suwannaphum text-xl text-khmer-burgundy/80 italic tracking-wide">សូមគោរពអញ្ជើញ</p>
-          <h2 className="font-moul text-2xl md:text-5xl text-khmer-gold-dark gold-shimmer text-center leading-[1.6] py-2">
+          <h2 className="font-moulpali text-2xl md:text-5xl text-khmer-gold-dark gold-shimmer text-center leading-[1.6] py-2">
             {guestName}
           </h2>
           <div className="h-[2px] w-32 bg-gradient-to-r from-transparent via-khmer-gold to-transparent" />
@@ -146,7 +146,7 @@ function HomeContent() {
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ delay: 0.3, duration: 1 }}
-              className="font-moul text-khmer-gold-light text-xl md:text-2xl tracking-[0.2em] mb-10 flex items-center gap-4 drop-shadow-lg"
+              className="font-moulpali text-khmer-gold-light text-xl md:text-2xl tracking-[0.2em] mb-10 flex items-center gap-4 drop-shadow-lg"
             >
               <div className="h-[2px] w-12 bg-khmer-gold" />
               សិរីសួស្តីពិធីភ្ជាប់ពាក្យ
@@ -166,19 +166,30 @@ function HomeContent() {
                 />
             </motion.div>
 
-            <motion.h1 
-              className="flex flex-col gap-8"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.8 }}
+            <motion.div 
+              className="flex flex-col items-center justify-center gap-6 my-8"
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.7, duration: 1, ease: "easeOut" }}
             >
-              <span className="font-moul text-4xl md:text-7xl text-white drop-shadow-[0_2px_15px_rgba(0,0,0,0.5)] leading-relaxed gold-shimmer">
-                ដេត & ពេជ្រ
-              </span>
-              <span className="font-playfair text-2xl md:text-4xl text-khmer-gold-light italic tracking-[0.4em] uppercase gold-shimmer drop-shadow-md">
-                Deth & Pich
-              </span>
-            </motion.h1>
+              <div className="flex flex-row items-center gap-4 md:gap-8">
+                <span 
+                  className="font-moulpali text-6xl md:text-8xl bg-gradient-to-b from-[#F3E5AB] via-[#D4AF37] to-[#8B6508] text-transparent bg-clip-text drop-shadow-[0_4px_10px_rgba(0,0,0,0.5)] tracking-wide inline-block pb-6 pt-2 leading-relaxed"
+                  style={{ WebkitTextStroke: '2px #D4AF37' }}
+                >
+                  ដេត
+                </span>
+                <span className="font-moulpali text-3xl md:text-5xl text-[#D4AF37] opacity-90 mt-2 md:mt-4 drop-shadow-md">
+                  និង
+                </span>
+                <span 
+                  className="font-moulpali text-6xl md:text-8xl bg-gradient-to-b from-[#F3E5AB] via-[#D4AF37] to-[#8B6508] text-transparent bg-clip-text drop-shadow-[0_4px_10px_rgba(0,0,0,0.5)] tracking-wide inline-block pb-6 pt-2 leading-relaxed"
+                  style={{ WebkitTextStroke: '2px #D4AF37' }}
+                >
+                  ពេជ្រ
+                </span>
+              </div>
+            </motion.div>
           </div>
 
           <motion.div 
@@ -238,7 +249,7 @@ function HomeContent() {
             />
           </motion.div>
           
-          <div className="grid md:grid-cols-2 gap-16 pt-16">
+          <div className="grid md:grid-cols-1 gap-16 pt-16">
              {/* Morning Ceremony */}
              <motion.div 
                {...fadeIn}
@@ -250,7 +261,7 @@ function HomeContent() {
                    <div className="p-4 bg-khmer-burgundy text-white rounded-2xl shadow-lg shadow-khmer-burgundy/20">
                       <Calendar className="w-7 h-7" />
                    </div>
-                   <h3 className="font-moul text-2xl text-khmer-burgundy tracking-wide">ពិធីពេលព្រឹក</h3>
+                   <h3 className="font-moulpali text-2xl text-khmer-burgundy tracking-wide">ពិធីពេលព្រឹក</h3>
                 </div>
                 <ul className="space-y-6 font-suwannaphum relative z-10">
                    {[
@@ -268,7 +279,7 @@ function HomeContent() {
              </motion.div>
 
              {/* Evening Party */}
-             <motion.div 
+             {/* <motion.div 
                {...fadeIn}
                transition={{ delay: 0.4 }}
                className="group bg-white p-10 rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.03)] border border-khmer-gold/5 relative overflow-hidden"
@@ -278,7 +289,7 @@ function HomeContent() {
                    <div className="p-4 bg-khmer-gold text-white rounded-2xl shadow-lg shadow-khmer-gold/20">
                       <Music className="w-7 h-7" />
                    </div>
-                   <h3 className="font-moul text-2xl text-khmer-gold tracking-wide">ពិធីពេលល្ងាច</h3>
+                   <h3 className="font-moulpali text-2xl text-khmer-gold tracking-wide">ពិធីពេលល្ងាច</h3>
                 </div>
                 <ul className="space-y-6 font-suwannaphum relative z-10">
                    {[
@@ -293,13 +304,13 @@ function HomeContent() {
                      </li>
                    ))}
                 </ul>
-             </motion.div>
+             </motion.div> */}
           </div>
         </div>
       </section>
 
       {/* Traditional Gallery Section */}
-      <section className="py-40 px-6 bg-white relative z-10 overflow-hidden">
+      {/* <section className="py-40 px-6 bg-white relative z-10 overflow-hidden">
         <div className="max-w-6xl mx-auto">
           <motion.div {...fadeIn}>
             <SectionHeading 
@@ -339,14 +350,14 @@ function HomeContent() {
                   className="object-cover group-hover:scale-110 transition-transform duration-700" 
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-khmer-burgundy/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8 text-white">
-                  <h4 className="font-moul text-xl mb-2">{item.title}</h4>
+                  <h4 className="font-moulpali text-xl mb-2">{item.title}</h4>
                   <p className="font-playfair italic text-sm text-khmer-gold">{item.desc}</p>
                 </div>
               </motion.div>
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Photo Gallery Section (User Images) */}
       <section className="py-40 px-6 bg-[#fcfaf7] relative z-10 overflow-hidden">
@@ -363,7 +374,7 @@ function HomeContent() {
               { img: "/images/IMG_2407.JPG", title: "រូបភាពអនុស្សាវរីយ៍ ១" },
               { img: "/images/IMG_2410.JPG", title: "រូបភាពអនុស្សាវរីយ៍ ២" },
               { img: "/images/IMG_2456.JPG", title: "រូបភាពអនុស្សាវរីយ៍ ៣" },
-              { img: "/images/IMG_2520.JPG", title: "រូបភាពអនុស្សាវរីយ៍ ៤" }
+              { img: "/images/IMG_2520.png", title: "រូបភាពអនុស្សាវរីយ៍ ៤" }
             ].map((item, idx) => (
               <motion.div 
                 key={idx}
@@ -395,8 +406,8 @@ function HomeContent() {
              <div className="p-5 bg-khmer-gold text-white rounded-full shadow-xl shadow-khmer-gold/30 scale-110 mt-6">
                 <MapPin className="w-8 h-8" />
              </div>
-             <p className="text-3xl font-moul text-khmer-burgundy mt-4">គេហដ្ឋាន ខាងស្រី</p>
-             <p className="text-xl text-khmer-text/60 italic font-playfair uppercase tracking-widest">Venue Address</p>
+             <p className="text-3xl font-moulpali text-khmer-burgundy mt-4">គេហដ្ឋាន ខាងស្រី</p>
+             {/* <p className="text-xl text-khmer-text/60 italic font-playfair uppercase tracking-widest">Venue Address</p> */}
           </motion.div>
 
           <motion.div 
@@ -419,7 +430,7 @@ function HomeContent() {
               rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center gap-3 bg-khmer-burgundy text-white px-10 py-5 rounded-full font-moul shadow-xl hover:bg-khmer-burgundy/90 transition-colors"
+              className="inline-flex items-center gap-3 bg-khmer-burgundy text-white px-10 py-5 rounded-full font-moulpali shadow-xl hover:bg-khmer-burgundy/90 transition-colors"
             >
               <MapPin className="w-5 h-5" />
               មើលក្នុង Google Maps
@@ -428,9 +439,9 @@ function HomeContent() {
         </div>
       </section>
 
-      {/* RSVP Section with Rich Colors */}
-      <section className="py-40 px-6 bg-khmer-burgundy text-khmer-cream relative z-10 overflow-hidden">
-        <div className="absolute inset-0 opacity-10 pointer-events-none" 
+      {/* RSVP Section */}
+      <section className="py-40 px-6 bg-white relative z-10 overflow-hidden">
+        <div className="absolute inset-0 opacity-5 pointer-events-none" 
              style={{ backgroundImage: `url('https://www.transparenttextures.com/patterns/az-subtle.png')` }} />
         
         <div className="max-w-4xl mx-auto text-center relative z-10">
@@ -439,47 +450,50 @@ function HomeContent() {
               title="ទំនាក់ទំនង" 
               subtitle="RSVP and Wishes" 
             />
-            <p className="font-suwannaphum text-xl mb-16 opacity-80 max-w-xl mx-auto leading-relaxed">
-              សូមផ្តល់ព័ត៌មានសម្រាប់ការចូលរួមរបស់លោកអ្នកមុនថ្ងៃទី ១៥ ខែធ្នូ ដើម្បីយើងខ្ញុំបានរៀបចំការទទួលបដិសណ្ឋារកិច្ចឱ្យបានសមរម្យ។
-            </p>
+            
+            <div className="bg-[#f8f5f0] border border-khmer-gold/20 rounded-[3rem] p-10 md:p-16 shadow-2xl shadow-khmer-gold/5 max-w-3xl mx-auto">
+              <p className="font-suwannaphum text-xl mb-12 text-khmer-text/80 leading-relaxed">
+                សូមផ្តល់ព័ត៌មានសម្រាប់ការចូលរួមរបស់លោកអ្នកមុនថ្ងៃទី ១៥ ខែធ្នូ ដើម្បីយើងខ្ញុំបានរៀបចំការទទួលបដិសណ្ឋារកិច្ចឱ្យបានសមរម្យ។
+              </p>
+              
+              <div className="flex flex-col md:flex-row justify-center items-center gap-12 md:gap-24">
+                 {[
+                   { side: "ខាងកូនប្រុស", phone: "012 345 678" },
+                   { side: "ខាងកូនស្រី", phone: "087 654 321" }
+                 ].map((contact, idx) => (
+                   <div key={idx} className="flex flex-col items-center gap-4 group">
+                      <div className="w-16 h-16 rounded-full bg-white shadow-lg flex items-center justify-center text-khmer-burgundy group-hover:scale-110 transition-transform">
+                        <Phone className="w-7 h-7" />
+                      </div>
+                      <div>
+                         <p className="font-suwannaphum text-lg text-khmer-text/60 mb-2">{contact.side}</p>
+                         <a href={`tel:${contact.phone.replace(/\s/g, '')}`} className="font-playfair font-bold text-2xl md:text-3xl tracking-widest text-khmer-gold hover:text-khmer-burgundy transition-colors">
+                            {contact.phone}
+                         </a>
+                      </div>
+                   </div>
+                 ))}
+              </div>
+            </div>
           </motion.div>
-          
-          <div className="grid md:grid-cols-2 gap-8">
-             {[
-               { side: "ខាងកូនប្រុស", phone: "012 345 678" },
-               { side: "ខាងកូនស្រី", phone: "087 654 321" }
-             ].map((contact, idx) => (
-               <motion.a 
-                key={idx}
-                {...fadeIn}
-                transition={{ delay: idx * 0.2 }}
-                href={`tel:${contact.phone.replace(/\s/g, '')}`} 
-                className="flex items-center justify-center gap-6 bg-white/10 hover:bg-white/20 p-10 rounded-[2.5rem] transition-all border border-white/10 group hover:-translate-y-2 backdrop-blur-md"
-               >
-                  <div className="w-14 h-14 rounded-2xl bg-khmer-gold flex items-center justify-center group-hover:rotate-12 transition-transform shadow-lg">
-                    <Phone className="w-7 h-7 text-khmer-burgundy" />
-                  </div>
-                  <div className="text-left">
-                     <p className="font-suwannaphum text-base opacity-70 mb-1">{contact.side}</p>
-                     <p className="font-playfair font-bold text-2xl tracking-widest text-khmer-gold drop-shadow-sm">{contact.phone}</p>
-                  </div>
-               </motion.a>
-             ))}
-          </div>
         </div>
       </section>
 
       {/* Footer Blessing */}
-      <footer className="py-20 bg-[#fdfaf5] text-center border-t border-khmer-gold/10">
-         <motion.div {...fadeIn}>
-           <div className="mb-8 flex items-center justify-center gap-4 text-khmer-gold/30">
-              <div className="h-px w-20 bg-current" />
-              <Heart className="w-6 h-6 fill-current" />
-              <div className="h-px w-20 bg-current" />
-           </div>
-           <p className="font-moul text-khmer-burgundy text-2xl mb-4 leading-loose">សូមអរគុណ និងសូមជូនពរសុខភាពល្អ</p>
-           <p className="font-playfair italic text-khmer-gold text-lg uppercase tracking-[0.4em]">Deth & Pich Wedding Invitation | 2026</p>
-         </motion.div>
+      <footer className="py-20 bg-khmer-burgundy text-center border-t border-khmer-gold/20 relative overflow-hidden">
+         <div className="absolute inset-0 opacity-10 pointer-events-none" 
+              style={{ backgroundImage: `url('https://www.transparenttextures.com/patterns/az-subtle.png')` }} />
+         <div className="relative z-10">
+           <motion.div {...fadeIn}>
+             <div className="mb-8 flex items-center justify-center gap-4 text-khmer-gold/40">
+                <div className="h-px w-20 bg-current" />
+                <Heart className="w-6 h-6 fill-current" />
+                <div className="h-px w-20 bg-current" />
+             </div>
+             <p className="font-moulpali text-[#D4AF37] text-2xl mb-4 leading-loose drop-shadow-md">សូមអរគុណ និងសូមជូនពរសុខភាពល្អ</p>
+             {/* <p className="font-playfair italic text-white/60 text-lg uppercase tracking-[0.4em]">Deth & Pich Wedding Invitation | 2026</p> */}
+           </motion.div>
+         </div>
       </footer>
     </main>
   );

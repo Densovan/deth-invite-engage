@@ -3,7 +3,7 @@ import React from 'react';
 export default function SectionHeading({ title, subtitle }: { title: string; subtitle?: string }) {
   return (
     <div className="text-center mb-16 relative z-10">
-      <h2 className="font-moul text-khmer-burgundy text-3xl md:text-5xl mb-6 leading-loose drop-shadow-sm tracking-wide">
+      <h2 className="font-moulpali text-khmer-burgundy text-3xl md:text-5xl mb-6 leading-loose drop-shadow-sm tracking-wide">
         {title}
       </h2>
       {subtitle && (

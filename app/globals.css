@@ -11,6 +11,7 @@
   --font-playfair: var(--font-playfair);
   --font-suwannaphum: var(--font-suwannaphum);
   --font-moul: var(--font-moul);
+  --font-moulpali: var(--font-moulpali);
 
   --animate-fall: fall 10s linear infinite;
   
@@ -46,4 +47,10 @@ body {
 }
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-khmer-burgundy);
+}
+
+.moulpali-regular {
+  font-family: var(--font-moulpali), sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }

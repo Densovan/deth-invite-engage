@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Suwannaphum, Moul } from "next/font/google";
+import { Playfair_Display, Suwannaphum, Moul, Moulpali } from "next/font/google";
 import "./globals.css";
 
 const playfair = Playfair_Display({
@@ -19,6 +19,12 @@ const moul = Moul({
   variable: "--font-moul",
 });
 
+const moulpali = Moulpali({
+  subsets: ["khmer"],
+  weight: ["400"],
+  variable: "--font-moulpali",
+});
+
 export const metadata: Metadata = {
   title: "សិរីសួស្តីពិធីកាត់ខាន់ស្លា - Engagement Invitation",
   description: "You are invited to our engagement ceremony.",
@@ -32,7 +38,7 @@ export default function RootLayout({
   return (
     <html lang="km">
       <body
-        className={`${playfair.variable} ${suwannaphum.variable} ${moul.variable} antialiased min-h-screen flex flex-col relative`}
+        className={`${playfair.variable} ${suwannaphum.variable} ${moul.variable} ${moulpali.variable} antialiased min-h-screen flex flex-col relative`}
       >
         {children}
       </body>

@@ -48,7 +48,7 @@ export default function Countdown({ targetDate }: { targetDate: string }) {
       ].map((item, idx) => (
         <div key={idx} className="flex flex-col items-center">
           <div className="w-16 h-16 md:w-20 md:h-20 rounded-full border-2 border-khmer-gold flex items-center justify-center bg-white/20 backdrop-blur-md shadow-lg mb-3">
-            <span className="text-2xl md:text-3xl font-moul text-khmer-gold-dark drop-shadow-sm">
+            <span className="text-2xl md:text-3xl font-moulpali text-khmer-gold-dark drop-shadow-sm">
               {toKhmerNumber(item.value)}
             </span>
           </div>
