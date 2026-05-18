@@ -520,13 +520,13 @@ function HomeContent() {
             
             <div className="bg-[#f8f5f0] border border-khmer-gold/20 rounded-[3rem] p-10 md:p-16 shadow-2xl shadow-khmer-gold/5 max-w-3xl mx-auto">
               <p className="font-suwannaphum text-xl mb-12 text-khmer-text/80 leading-relaxed">
-                សូមផ្តល់ព័ត៌មានសម្រាប់ការចូលរួមរបស់លោកអ្នកមុនថ្ងៃទី ១៥ ខែធ្នូ ដើម្បីយើងខ្ញុំបានរៀបចំការទទួលបដិសណ្ឋារកិច្ចឱ្យបានសមរម្យ។
+                សូមផ្តល់ព័ត៌មានសម្រាប់ការចូលរួមរបស់លោកអ្នកមុនថ្ងៃទី ២១ ខែមិថុនា ដើម្បីយើងខ្ញុំបានរៀបចំការទទួលបដិសណ្ឋារកិច្ចឱ្យបានសមរម្យ។
               </p>
               
               <div className="flex flex-col md:flex-row justify-center items-center gap-12 md:gap-24">
                  {[
-                   { side: "ខាងកូនប្រុស", phone: "012 345 678" },
-                   { side: "ខាងកូនស្រី", phone: "087 654 321" }
+                   { side: "ខាងកូនប្រុស", phone: "071 804 4454", displayPhone: "០៧១ ៨០៤ ៤៤៥៤" },
+                   { side: "ខាងកូនស្រី", phone: "069 482 676", displayPhone: "០៦៩ ៤៨២ ៦៧៦" }
                  ].map((contact, idx) => (
                    <div key={idx} className="flex flex-col items-center gap-4 group">
                       <div className="w-16 h-16 rounded-full bg-white shadow-lg flex items-center justify-center text-khmer-burgundy group-hover:scale-110 transition-transform">
@@ -534,8 +534,8 @@ function HomeContent() {
                       </div>
                       <div>
                          <p className="font-suwannaphum text-lg text-khmer-text/60 mb-2">{contact.side}</p>
-                         <a href={`tel:${contact.phone.replace(/\s/g, '')}`} className="font-playfair font-bold text-2xl md:text-3xl tracking-widest text-khmer-gold hover:text-khmer-burgundy transition-colors">
-                            {contact.phone}
+                         <a href={`tel:${contact.phone.replace(/\s/g, '')}`} className="font-suwannaphum font-bold text-2xl md:text-3xl tracking-widest text-khmer-gold hover:text-khmer-burgundy transition-colors">
+                            {contact.displayPhone}
                          </a>
                       </div>
                    </div>
