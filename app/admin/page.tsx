@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Copy, Plus, Trash2, CheckCircle2, Edit2, X, Save } from "lucide-react";
+import { Copy, Plus, Trash2, CheckCircle2, Edit2, X, Save, Search } from "lucide-react";
 
 export default function AdminPage() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -12,6 +12,7 @@ export default function AdminPage() {
   const [newGuestName, setNewGuestName] = useState("");
   const [loading, setLoading] = useState(false);
   const [copiedSlug, setCopiedSlug] = useState<string | null>(null);
+  const [searchQuery, setSearchQuery] = useState("");
   
   const [editingId, setEditingId] = useState<string | null>(null);
   const [editName, setEditName] = useState("");
@@ -162,6 +163,10 @@ export default function AdminPage() {
     );
   }
 
+  const filteredGuests = guests.filter(guest => 
+    guest.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
     <div className="min-h-screen bg-khmer-cream p-6 md:p-12 font-suwannaphum text-khmer-text">
       <div className="max-w-4xl mx-auto space-y-8">
@@ -190,30 +195,41 @@ export default function AdminPage() {
           </button>
         </form>
 
+        <div className="relative">
+          <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
+          <input 
+            type="text" 
+            placeholder="ស្វែងរកឈ្មោះភ្ញៀវ..." 
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="w-full pl-12 p-4 bg-white border border-khmer-gold/30 rounded-xl outline-none focus:border-khmer-gold text-lg shadow-sm"
+          />
+        </div>
+
         <div className="bg-white rounded-2xl shadow-lg border border-khmer-gold/10 overflow-hidden">
           <table className="w-full text-left border-collapse">
             <thead>
               <tr className="bg-khmer-gold/10 text-khmer-burgundy">
-                <th className="p-4 font-bold border-b border-khmer-gold/20">ឈ្មោះភ្ញៀវ</th>
-                <th className="p-4 font-bold border-b border-khmer-gold/20">តំណភ្ជាប់ (Link)</th>
-                <th className="p-4 font-bold border-b border-khmer-gold/20 w-32">សកម្មភាព</th>
+                <th className="p-2 sm:p-4 font-bold border-b border-khmer-gold/20 text-sm sm:text-base">ឈ្មោះភ្ញៀវ</th>
+                <th className="p-2 sm:p-4 font-bold border-b border-khmer-gold/20 text-sm sm:text-base">តំណភ្ជាប់ (Link)</th>
+                <th className="p-2 sm:p-4 font-bold border-b border-khmer-gold/20 w-24 sm:w-32 text-sm sm:text-base">សកម្មភាព</th>
               </tr>
             </thead>
             <tbody>
-              {guests.length === 0 ? (
+              {filteredGuests.length === 0 ? (
                 <tr>
-                  <td colSpan={3} className="p-8 text-center text-gray-400 italic">មិនទាន់មានភ្ញៀវនៅឡើយទេ</td>
+                  <td colSpan={3} className="p-8 text-center text-gray-400 italic">មិនមានភ្ញៀវដែលអ្នកស្វែងរកទេ</td>
                 </tr>
               ) : (
-                guests.map((guest) => (
+                filteredGuests.map((guest) => (
                   <tr key={guest._id} className="hover:bg-khmer-gold/5 transition-colors group">
-                    <td className="p-4 border-b border-khmer-gold/10 font-bold">
+                    <td className="p-2 sm:p-4 border-b border-khmer-gold/10 font-bold text-sm sm:text-base">
                       {editingId === guest._id ? (
                         <input
                           type="text"
                           value={editName}
                           onChange={(e) => setEditName(e.target.value)}
-                          className="w-full p-2 border border-khmer-gold/50 rounded outline-none"
+                          className="w-full p-1 sm:p-2 border border-khmer-gold/50 rounded outline-none text-sm sm:text-base"
                           autoFocus
                           onKeyDown={(e) => e.key === 'Enter' && saveEdit(guest._id)}
                         />
@@ -221,50 +237,50 @@ export default function AdminPage() {
                         guest.name
                       )}
                     </td>
-                    <td className="p-4 border-b border-khmer-gold/10 font-mono text-sm text-gray-500">
+                    <td className="p-2 sm:p-4 border-b border-khmer-gold/10 font-mono text-xs sm:text-sm text-gray-500 break-all">
                       /{guest.slug}
                     </td>
-                    <td className="p-4 border-b border-khmer-gold/10">
-                      <div className="flex gap-2">
+                    <td className="p-2 sm:p-4 border-b border-khmer-gold/10">
+                      <div className="flex gap-1 sm:gap-2">
                         {editingId === guest._id ? (
                           <>
                             <button 
                               onClick={() => saveEdit(guest._id)}
-                              className="p-2 text-green-600 hover:bg-green-50 rounded-lg transition-colors"
+                              className="p-1 sm:p-2 text-green-600 hover:bg-green-50 rounded-lg transition-colors"
                               title="Save"
                             >
-                              <Save className="w-5 h-5" />
+                              <Save className="w-4 h-4 sm:w-5 h-5" />
                             </button>
                             <button 
                               onClick={cancelEditing}
-                              className="p-2 text-gray-400 hover:bg-gray-100 rounded-lg transition-colors"
+                              className="p-1 sm:p-2 text-gray-400 hover:bg-gray-100 rounded-lg transition-colors"
                               title="Cancel"
                             >
-                              <X className="w-5 h-5" />
+                              <X className="w-4 h-4 sm:w-5 h-5" />
                             </button>
                           </>
                         ) : (
                           <>
                             <button 
                               onClick={() => startEditing(guest)}
-                              className="p-2 text-khmer-burgundy/60 hover:bg-khmer-burgundy/10 hover:text-khmer-burgundy rounded-lg transition-colors"
+                              className="p-1 sm:p-2 text-khmer-burgundy/60 hover:bg-khmer-burgundy/10 hover:text-khmer-burgundy rounded-lg transition-colors"
                               title="Edit"
                             >
-                              <Edit2 className="w-5 h-5" />
+                              <Edit2 className="w-4 h-4 sm:w-5 h-5" />
                             </button>
                             <button 
                               onClick={() => copyToClipboard(guest.slug)}
-                              className="p-2 text-khmer-gold hover:bg-khmer-gold/10 rounded-lg transition-colors"
+                              className="p-1 sm:p-2 text-khmer-gold hover:bg-khmer-gold/10 rounded-lg transition-colors"
                               title="Copy Link"
                             >
-                              {copiedSlug === guest.slug ? <CheckCircle2 className="w-5 h-5 text-green-500" /> : <Copy className="w-5 h-5" />}
+                              {copiedSlug === guest.slug ? <CheckCircle2 className="w-4 h-4 sm:w-5 h-5 text-green-500" /> : <Copy className="w-4 h-4 sm:w-5 h-5" />}
                             </button>
                             <button 
                               onClick={() => deleteGuest(guest._id)}
-                              className="p-2 text-red-400 hover:bg-red-50 hover:text-red-600 rounded-lg transition-colors"
+                              className="p-1 sm:p-2 text-red-400 hover:bg-red-50 hover:text-red-600 rounded-lg transition-colors"
                               title="Delete"
                             >
-                              <Trash2 className="w-5 h-5" />
+                              <Trash2 className="w-4 h-4 sm:w-5 h-5" />
                             </button>
                           </>
                         )}
