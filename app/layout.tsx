@@ -25,84 +25,28 @@ const moulpali = Moulpali({
   variable: "--font-moulpali",
 });
 
-// export const metadata: Metadata = {
-//   title: "សិរីសួស្តីពិធីកាត់ខាន់ស្លា - Engagement Invitation",
-//   description: "You are invited to our engagement ceremony.",
-//   metadataBase: new URL("https://deth-pich.vercel.app"),
-//   openGraph: {
-//     title: "សិរីសួស្តីពិធីកាត់ខាន់ស្លា - Engagement Invitation",
-//     description: "You are invited to our engagement ceremony.",
-//     images: [
-//       {
-//         url: "https://deth-pich.vercel.app/images/IMG_2407.JPG",
-//         width: 1200,
-//         height: 630,
-//         alt: "Engagement Invitation Thumbnail",
-//       },
-//     ],
-//   },
-//   twitter: {
-//     card: "summary_large_image",
-//     title: "សិរីសួស្តីពិធីកាត់ខាន់ស្លា - Engagement Invitation",
-//     description: "You are invited to our engagement ceremony.",
-//     images: ["https://deth-pich.vercel.app/images/IMG_2407.JPG"],
-//   },
-// };
 
-
-// export const metadata: Metadata = {
-//   metadataBase: new URL("https://deth-pich.vercel.app"),
-
-//   title: "សិរីសួស្តីពិធីភ្ជាប់ពាក្យ - Engagement Invitation",
-
-//   description:
-//     "You are warmly invited to our engagement ceremony.",
-
-//   openGraph: {
-//     title: "សិរីសួស្តីពិធីភ្ជាប់ពាក្យ - Engagement Invitation",
-
-//     description:
-//       "You are warmly invited to our engagement ceremony.",
-
-//     url: "https://deth-pich.vercel.app",
-
-//     siteName: "Deth & Pich Engagement",
-
-//     images: [
-//       {
-//         url: "https://deth-pich.vercel.app/images/IMG_2407.JPG",
-//         width: 1200,
-//         height: 630,
-//         alt: "Engagement Invitation Thumbnail",
-//       },
-//     ],
-
-//     locale: "km_KH",
-//     type: "website",
-//   },
-
-//   twitter: {
-//     card: "summary_large_image",
-
-//     title: "សិរីសួស្តីពិធីភ្ជាប់ពាក្យ - Engagement Invitation",
-
-//     description:
-//       "You are warmly invited to our engagement ceremony.",
-
-//     images: [
-//       "https://deth-pich.vercel.app/images/IMG_2407.JPG",
-//     ],
-//   },
-// };
 export const metadata: Metadata = {
   title: "សិរីសួស្តីពិធីភ្ជាប់ពាក្យ - Engagement Invitation",
   description: "You are warmly invited to our engagement ceremony.",
+  metadataBase: new URL("https://deth-pich.vercel.app"),
   openGraph: {
     title: "សិរីសួស្តីពិធីភ្ជាប់ពាក្យ - Engagement Invitation",
     description: "You are warmly invited to our engagement ceremony.",
     images: [
-      "https://deth-pich.vercel.app/images/IMG_2407.JPG",
+      {
+        url: "https://deth-pich.vercel.app/images/IMG_2407_thumb.jpg",
+        width: 800,
+        height: 600,
+        alt: "Engagement Invitation Thumbnail",
+      },
     ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "សិរីសួស្តីពិធីភ្ជាប់ពាក្យ - Engagement Invitation",
+    description: "You are warmly invited to our engagement ceremony.",
+    images: ["https://deth-pich.vercel.app/images/IMG_2407_thumb.jpg"],
   },
 };
 
