@@ -49,86 +49,49 @@ const moulpali = Moulpali({
 //   },
 // };
 
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://deth-pich.vercel.app"),
 
-  title: {
-    default: "សិរីសួស្តីពិធីកាត់ខាន់ស្លា - Engagement Invitation",
-    template: "%s | Engagement Invitation",
-  },
+  title: "សិរីសួស្តីពិធីភ្ជាប់ពាក្យ - Engagement Invitation",
 
   description:
-    "សូមគោរពអញ្ជើញចូលរួមពិធីកាត់ខាន់ស្លា និងពិសាអាហារសាមគ្គី។ You are warmly invited to our engagement ceremony.",
-
-  keywords: [
-    "Engagement Invitation",
-    "Wedding Invitation",
-    "Khmer Wedding",
-    "Cambodia Engagement",
-    "សិរីសួស្តីពិធីកាត់ខាន់ស្លា",
-    "ការអញ្ជើញពិធីភ្ជាប់ពាក្យ",
-  ],
-
-  authors: [
-    {
-      name: "Deth & Pich",
-    },
-  ],
-
-  creator: "Deth & Pich",
+    "You are warmly invited to our engagement ceremony.",
 
   openGraph: {
-    type: "website",
-    locale: "km_KH",
-    url: "https://deth-pich.vercel.app",
-    siteName: "Deth & Pich Engagement",
-
-    title: "សិរីសួស្តីពិធីកភ្ជាប់ពាក្យ - Engagement Invitation",
+    title: "សិរីសួស្តីពិធីភ្ជាប់ពាក្យ - Engagement Invitation",
 
     description:
-      "សូមគោរពអញ្ជើញចូលរួមពិធីភ្ជាប់ពាក្យរបស់កូនប្រុសស្រី។",
+      "You are warmly invited to our engagement ceremony.",
+
+    url: "https://deth-pich.vercel.app",
+
+    siteName: "Deth & Pich Engagement",
 
     images: [
       {
-        url: "/images/IMG_2407.JPG",
+        url: "https://deth-pich.vercel.app/images/IMG_2407.JPG",
         width: 1200,
         height: 630,
-        alt: "Deth & Pich Engagement Invitation",
+        alt: "Engagement Invitation Thumbnail",
       },
     ],
+
+    locale: "km_KH",
+    type: "website",
   },
 
   twitter: {
     card: "summary_large_image",
 
-    title: "សិរីសួស្តីពិធីកាត់ខាន់ស្លា - Engagement Invitation",
+    title: "សិរីសួស្តីពិធីភ្ជាប់ពាក្យ - Engagement Invitation",
 
     description:
       "You are warmly invited to our engagement ceremony.",
 
-    images: ["/images/IMG_2407.JPG"],
-  },
-
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
-
-  alternates: {
-    canonical: "https://deth-pich.vercel.app",
-  },
-
-  icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
+    images: [
+      "https://deth-pich.vercel.app/images/IMG_2407.JPG",
+    ],
   },
 };
 
