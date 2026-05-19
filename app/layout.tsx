@@ -50,45 +50,56 @@ const moulpali = Moulpali({
 // };
 
 
+// export const metadata: Metadata = {
+//   metadataBase: new URL("https://deth-pich.vercel.app"),
+
+//   title: "សិរីសួស្តីពិធីភ្ជាប់ពាក្យ - Engagement Invitation",
+
+//   description:
+//     "You are warmly invited to our engagement ceremony.",
+
+//   openGraph: {
+//     title: "សិរីសួស្តីពិធីភ្ជាប់ពាក្យ - Engagement Invitation",
+
+//     description:
+//       "You are warmly invited to our engagement ceremony.",
+
+//     url: "https://deth-pich.vercel.app",
+
+//     siteName: "Deth & Pich Engagement",
+
+//     images: [
+//       {
+//         url: "https://deth-pich.vercel.app/images/IMG_2407.JPG",
+//         width: 1200,
+//         height: 630,
+//         alt: "Engagement Invitation Thumbnail",
+//       },
+//     ],
+
+//     locale: "km_KH",
+//     type: "website",
+//   },
+
+//   twitter: {
+//     card: "summary_large_image",
+
+//     title: "សិរីសួស្តីពិធីភ្ជាប់ពាក្យ - Engagement Invitation",
+
+//     description:
+//       "You are warmly invited to our engagement ceremony.",
+
+//     images: [
+//       "https://deth-pich.vercel.app/images/IMG_2407.JPG",
+//     ],
+//   },
+// };
 export const metadata: Metadata = {
-  metadataBase: new URL("https://deth-pich.vercel.app"),
-
   title: "សិរីសួស្តីពិធីភ្ជាប់ពាក្យ - Engagement Invitation",
-
-  description:
-    "You are warmly invited to our engagement ceremony.",
-
+  description: "You are warmly invited to our engagement ceremony.",
   openGraph: {
     title: "សិរីសួស្តីពិធីភ្ជាប់ពាក្យ - Engagement Invitation",
-
-    description:
-      "You are warmly invited to our engagement ceremony.",
-
-    url: "https://deth-pich.vercel.app",
-
-    siteName: "Deth & Pich Engagement",
-
-    images: [
-      {
-        url: "https://deth-pich.vercel.app/images/IMG_2407.JPG",
-        width: 1200,
-        height: 630,
-        alt: "Engagement Invitation Thumbnail",
-      },
-    ],
-
-    locale: "km_KH",
-    type: "website",
-  },
-
-  twitter: {
-    card: "summary_large_image",
-
-    title: "សិរីសួស្តីពិធីភ្ជាប់ពាក្យ - Engagement Invitation",
-
-    description:
-      "You are warmly invited to our engagement ceremony.",
-
+    description: "You are warmly invited to our engagement ceremony.",
     images: [
       "https://deth-pich.vercel.app/images/IMG_2407.JPG",
     ],
