@@ -21,8 +21,16 @@ export async function POST(request: Request) {
       return NextResponse.json({ success: false, error: 'Name is required' }, { status: 400 });
     }
 
+    const guestName = body.name.trim();
+
+    // Check for duplicate name
+    const existingName = await Guest.findOne({ name: guestName });
+    if (existingName) {
+      return NextResponse.json({ success: false, error: 'Guest name already exists' }, { status: 400 });
+    }
+
     // Replace spaces with hyphens for the slug
-    let baseSlug = body.name.trim().replace(/\s+/g, '-');
+    let baseSlug = guestName.replace(/\s+/g, '-');
     let slug = baseSlug;
     
     // Ensure slug is unique

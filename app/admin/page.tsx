@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Copy, Plus, Trash2, CheckCircle2 } from "lucide-react";
+import { Copy, Plus, Trash2, CheckCircle2, Edit2, X, Save } from "lucide-react";
 
 export default function AdminPage() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -12,6 +12,9 @@ export default function AdminPage() {
   const [newGuestName, setNewGuestName] = useState("");
   const [loading, setLoading] = useState(false);
   const [copiedSlug, setCopiedSlug] = useState<string | null>(null);
+  
+  const [editingId, setEditingId] = useState<string | null>(null);
+  const [editName, setEditName] = useState("");
 
   useEffect(() => {
     const auth = localStorage.getItem("adminAuth");
@@ -94,6 +97,38 @@ export default function AdminPage() {
     setTimeout(() => setCopiedSlug(null), 2000);
   };
 
+  const startEditing = (guest: any) => {
+    setEditingId(guest._id);
+    setEditName(guest.name);
+  };
+
+  const cancelEditing = () => {
+    setEditingId(null);
+    setEditName("");
+  };
+
+  const saveEdit = async (id: string) => {
+    if (!editName.trim()) return;
+    
+    try {
+      const res = await fetch(`/api/guests/${id}`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name: editName }),
+      });
+      const json = await res.json();
+      if (json.success) {
+        setEditingId(null);
+        fetchGuests();
+      } else {
+        alert(json.error || "Failed to update guest");
+      }
+    } catch (err) {
+      console.error("Failed to update guest", err);
+      alert("Failed to update guest");
+    }
+  };
+
   if (!isAuthenticated) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-khmer-cream p-4">
@@ -131,7 +166,7 @@ export default function AdminPage() {
     <div className="min-h-screen bg-khmer-cream p-6 md:p-12 font-suwannaphum text-khmer-text">
       <div className="max-w-4xl mx-auto space-y-8">
         <div className="flex justify-between items-center">
-          <h1 className="font-moulpali text-3xl text-khmer-burgundy">គ្រប់គ្រងភ្ញៀវកិត្តិយស</h1>
+          <h1 className="font-moulpali sm:text-3xl text-xl text-khmer-burgundy">គ្រប់គ្រងភ្ញៀវកិត្តិយស</h1>
           <button onClick={handleLogout} className="px-4 py-2 text-sm bg-white border border-khmer-gold/30 rounded-lg hover:bg-gray-50 transition-colors">
             ចាកចេញ
           </button>
@@ -172,26 +207,67 @@ export default function AdminPage() {
               ) : (
                 guests.map((guest) => (
                   <tr key={guest._id} className="hover:bg-khmer-gold/5 transition-colors group">
-                    <td className="p-4 border-b border-khmer-gold/10 font-bold">{guest.name}</td>
+                    <td className="p-4 border-b border-khmer-gold/10 font-bold">
+                      {editingId === guest._id ? (
+                        <input
+                          type="text"
+                          value={editName}
+                          onChange={(e) => setEditName(e.target.value)}
+                          className="w-full p-2 border border-khmer-gold/50 rounded outline-none"
+                          autoFocus
+                          onKeyDown={(e) => e.key === 'Enter' && saveEdit(guest._id)}
+                        />
+                      ) : (
+                        guest.name
+                      )}
+                    </td>
                     <td className="p-4 border-b border-khmer-gold/10 font-mono text-sm text-gray-500">
                       /{guest.slug}
                     </td>
                     <td className="p-4 border-b border-khmer-gold/10">
                       <div className="flex gap-2">
-                        <button 
-                          onClick={() => copyToClipboard(guest.slug)}
-                          className="p-2 text-khmer-gold hover:bg-khmer-gold/10 rounded-lg transition-colors"
-                          title="Copy Link"
-                        >
-                          {copiedSlug === guest.slug ? <CheckCircle2 className="w-5 h-5 text-green-500" /> : <Copy className="w-5 h-5" />}
-                        </button>
-                        <button 
-                          onClick={() => deleteGuest(guest._id)}
-                          className="p-2 text-red-400 hover:bg-red-50 hover:text-red-600 rounded-lg transition-colors"
-                          title="Delete"
-                        >
-                          <Trash2 className="w-5 h-5" />
-                        </button>
+                        {editingId === guest._id ? (
+                          <>
+                            <button 
+                              onClick={() => saveEdit(guest._id)}
+                              className="p-2 text-green-600 hover:bg-green-50 rounded-lg transition-colors"
+                              title="Save"
+                            >
+                              <Save className="w-5 h-5" />
+                            </button>
+                            <button 
+                              onClick={cancelEditing}
+                              className="p-2 text-gray-400 hover:bg-gray-100 rounded-lg transition-colors"
+                              title="Cancel"
+                            >
+                              <X className="w-5 h-5" />
+                            </button>
+                          </>
+                        ) : (
+                          <>
+                            <button 
+                              onClick={() => startEditing(guest)}
+                              className="p-2 text-khmer-burgundy/60 hover:bg-khmer-burgundy/10 hover:text-khmer-burgundy rounded-lg transition-colors"
+                              title="Edit"
+                            >
+                              <Edit2 className="w-5 h-5" />
+                            </button>
+                            <button 
+                              onClick={() => copyToClipboard(guest.slug)}
+                              className="p-2 text-khmer-gold hover:bg-khmer-gold/10 rounded-lg transition-colors"
+                              title="Copy Link"
+                            >
+                              {copiedSlug === guest.slug ? <CheckCircle2 className="w-5 h-5 text-green-500" /> : <Copy className="w-5 h-5" />}
+                            </button>
+                            <button 
+                              onClick={() => deleteGuest(guest._id)}
+                              className="p-2 text-red-400 hover:bg-red-50 hover:text-red-600 rounded-lg transition-colors"
+                              title="Delete"
+                            >
+                              <Trash2 className="w-5 h-5" />
+                            </button>
+                          </>
+                        )}
                       </div>
                     </td>
                   </tr>
