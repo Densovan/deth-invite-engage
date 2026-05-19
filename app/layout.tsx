@@ -31,6 +31,8 @@ export const metadata: Metadata = {
   description: "You are warmly invited to our engagement ceremony.",
   metadataBase: new URL("https://deth-pich.vercel.app"),
   openGraph: {
+    type: "website",
+    url: "https://deth-pich.vercel.app",
     title: "សិរីសួស្តីពិធីភ្ជាប់ពាក្យ - Engagement Invitation",
     description: "You are warmly invited to our engagement ceremony.",
     images: [
@@ -39,6 +41,7 @@ export const metadata: Metadata = {
         width: 800,
         height: 600,
         alt: "Engagement Invitation Thumbnail",
+        type: "image/jpeg",
       },
     ],
   },
