@@ -303,7 +303,7 @@ function InvitationContent({ guestName: propGuestName }: { guestName?: string })
                   className="font-moulpali text-2xl xs:text-3xl sm:text-5xl md:text-8xl bg-gradient-to-b from-[#F3E5AB] via-[#D4AF37] to-[#8B6508] text-transparent bg-clip-text drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)] tracking-wide inline-block pb-2 md:pb-6 pt-2 leading-relaxed shrink-0"
                   style={{ WebkitTextStroke: '1px #D4AF37', WebkitTextStrokeWidth: '1px' }}
                 >
-                  លឹមស្រី ពេជ្រ
+                  លឹម ស្រីពេជ្រ
                 </span>
               </div>
             </motion.div>
@@ -350,7 +350,7 @@ function InvitationContent({ guestName: propGuestName }: { guestName?: string })
           />
           <div className="p-10 md:p-16 rounded-[2rem] bg-khmer-cream/30 border border-khmer-gold/10 backdrop-blur-sm shadow-inner">
             <p className="font-suwannaphum text-xl leading-[2.2] text-khmer-text text-justify md:text-center italic">
-              យើងខ្ញុំមានកិត្តិយសសូមគោរពអញ្ជើញ លោក លោកស្រី អ្នកនាងកញ្ញា ចូលរួមជាអធិបតី និងជាភ្ញៀវកិត្តិយសក្នុងពិធីបញ្ចជាប់ពាក្យ កូនប្រុស កូនស្រី របស់យើងខ្ញុំ ដែលនឹងប្រព្រឹត្តទៅតាមកម្មវិធីដូចខាងក្រោម។ វត្តមានរបស់លោកអ្នកគឺជាកិត្តិយសដ៏ខ្ពង់ខ្ពស់បំផុតសម្រាប់យើងខ្ញុំ។
+              យើងខ្ញុំមានកិត្តិយសសូមគោរពអញ្ជើញ លោក លោកស្រី អ្នកនាងកញ្ញា ចូលរួមជាអធិបតី និងជាភ្ញៀវកិត្តិយសក្នុងពិធីភ្ជាប់ពាក្យ កូនប្រុស កូនស្រី របស់យើងខ្ញុំ ដែលនឹងប្រព្រឹត្តទៅតាមកម្មវិធីដូចខាងក្រោម។វត្តមានរបស់លោកអ្នកគឺជាកិត្តិយសដ៏ខ្ពង់ខ្ពស់បំផុតសម្រាប់យើងខ្ញុំ។
             </p>
           </div>
         </motion.div>
