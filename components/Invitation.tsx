@@ -382,14 +382,20 @@ function InvitationContent({ guestName: propGuestName }: { guestName?: string })
                 </div>
                 <ul className="space-y-6 font-suwannaphum relative z-10">
                    {[
-                     { time: "០៧:៣០ ព្រឹក", desc: "ជួបជុំភ្ញៀវកិត្តិយស" },
-                     { time: "០៨:០០ ព្រឹក", desc: "ពិធីហែជំនូន និងកាត់ខាន់ស្លា" },
-                     { time: "០៩:៣០ ព្រឹក", desc: "ពិធីបំពាក់ចិញ្ចៀន" }
+                     { time: "០៧:៣០", desc: "ជួបជុំគ្រួសារបងប្អូន ភ្ញៀវកិត្តិយសពិសាអាហារព្រឹក" },
+                     { time: "០៨:០០", desc: "ពិធីហែរជំនូន" },
+                     { time: "០៨:៣០", desc: "ពិធីបំពាក់ចិញ្ចៀន" },
+                     { time: "០៩:០០", desc: "ពិធីសុីស្លាម្លូ" },
+                     { time: "០៩:៣០", desc: "ផ្ទឹមចងដៃពរជ័យ" },
+                     { time: "១០:០០", desc: "ជួបជុំគ្រួសារបងប្អូន ភ្ញៀវកិត្តិយសពិសាអាហារថ្ងៃត្រង់" }
                    ].map((item, idx) => (
-                     <li key={idx} className="flex justify-between items-center group/item">
-                        <span className="text-khmer-gold font-bold font-playfair text-lg">{item.time}</span>
-                        <span className="h-px flex-1 mx-4 bg-khmer-gold/10 group-hover/item:bg-khmer-gold/30 transition-colors" />
-                        <span className="text-lg">{item.desc}</span>
+                     <li key={idx} className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 sm:gap-4 group/item border-b border-khmer-gold/5 pb-4 sm:pb-0 sm:border-0">
+                        <div className="flex items-center gap-3 shrink-0">
+                           <span className="w-2.5 h-2.5 rounded-full bg-khmer-gold/40 group-hover/item:bg-khmer-gold group-hover/item:scale-125 transition-all duration-300" />
+                           <span className="text-khmer-gold font-bold font-playfair text-lg min-w-[60px]">{item.time}</span>
+                        </div>
+                        <span className="hidden sm:block h-[1px] flex-1 bg-khmer-gold/10 group-hover/item:bg-khmer-gold/30 transition-colors" />
+                        <span className="text-base sm:text-lg text-khmer-text sm:text-right font-medium group-hover/item:text-khmer-burgundy transition-colors pl-5 sm:pl-0">{item.desc}</span>
                      </li>
                    ))}
                 </ul>
@@ -492,7 +498,10 @@ function InvitationContent({ guestName: propGuestName }: { guestName?: string })
           >
             <video 
               src="/sounds/IMG_8665.MOV" 
-              controls 
+              autoPlay
+              muted
+              loop
+              controls
               playsInline
               preload="metadata"
               className="w-full max-h-[600px] object-contain mx-auto"
@@ -515,10 +524,10 @@ function InvitationContent({ guestName: propGuestName }: { guestName?: string })
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mt-20">
             {[
               { img: "/images/IMG_8955.JPG", title: "រូបភាពអនុស្សាវរីយ៍ ១" },
-              { img: "/images/IMG_6418.jpg", title: "រូបភាពអនុស្សាវរីយ៍ ២" },
+              { img: "/images/IMG_8956.JPG", title: "រូបភាពអនុស្សាវរីយ៍ ២" },
+              { img: "/images/IMG_8694.jpg", title: "រូបភាពអនុស្សាវរីយ៍ ៤" },
               { img: "/images/IMG_2456.JPG", title: "រូបភាពអនុស្សាវរីយ៍ ៣" },
-              { img: "/images/IMG_2520.png", title: "រូបភាពអនុស្សាវរីយ៍ ៤" },
-              { img: "/images/IMG_2407.JPG", title: "រូបភាពអនុស្សាវរីយ៍ ៤" },
+              { img: "/images/IMG_2407.JPG", title: "រូបភាពអនុស្សាវរីយ៍ ៥" },
             ].map((item, idx) => (
               <motion.div 
                 key={idx}
