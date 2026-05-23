@@ -121,25 +121,30 @@ function InvitationContent({ guestName: propGuestName }: { guestName?: string })
                 src="/images/IMG_2410.JPG"
                 alt="Background"
                 fill
-                className="object-cover opacity-20 blur-sm"
+                className="object-cover opacity-50 md:opacity-70 transition-all duration-1000"
+                priority
               />
-              <div className="absolute inset-0 bg-black/40" />
+              {/* Premium cinematic vignette overlay */}
+              <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/10 to-black/80 z-1" />
             </div>
 
             <motion.div 
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ delay: 0.2, duration: 0.8 }}
-              className="relative z-10 flex flex-col items-center text-center px-6"
+              className="relative z-10 flex flex-col items-center text-center px-6 max-w-lg md:max-w-4xl lg:max-w-5xl mx-auto"
             >
-              <div className="w-24 h-24 rounded-full border-2 border-khmer-gold flex items-center justify-center mb-8 shadow-[0_0_30px_rgba(212,175,55,0.3)]">
-                <Heart className="w-10 h-10 text-khmer-gold animate-pulse" />
+              <div className="w-16 h-16 md:w-24 md:h-24 rounded-full border-2 border-khmer-gold flex items-center justify-center mb-4 md:mb-8 shadow-[0_0_30px_rgba(212,175,55,0.4)]">
+                <Heart className="w-7 h-7 md:w-10 md:h-10 text-khmer-gold animate-pulse" />
               </div>
-               <p className="font-suwannaphum text-xl md:text-2xl text-khmer-cream mb-12">
+               <p className="font-suwannaphum text-base xs:text-lg md:text-2xl text-khmer-cream mb-4 md:mb-8 tracking-wide">
                 សិរីសួស្តីពិធីភ្ជាប់ពាក្យ
               </p>
-              <h1 className="font-moulpali text-4xl md:text-6xl text-khmer-gold-light mb-4 drop-shadow-lg mb-10">
-                ដេត និង ពេជ្រ
+              <h1 
+                className="font-moulpali text-xl xs:text-2xl md:text-4xl lg:text-6xl bg-gradient-to-b from-[#F3E5AB] via-[#D4AF37] to-[#8B6508] text-transparent bg-clip-text drop-shadow-[0_4px_10px_rgba(0,0,0,0.6)] mb-6 md:mb-10 leading-snug md:leading-relaxed tracking-wide pb-2"
+                style={{ WebkitTextStroke: '1px #D4AF37', WebkitTextStrokeWidth: '1px' }}
+              >
+                ម៉ៅ វណ្ណដេត និង លឹម ស្រីពេជ្រ
               </h1>
               
               {guestName && (
@@ -150,14 +155,49 @@ function InvitationContent({ guestName: propGuestName }: { guestName?: string })
                 </div>
               )}
 
-              <button 
+              <motion.button 
                 onClick={handleOpenInvitation}
-                className="group relative px-10 py-4 overflow-hidden rounded-full bg-khmer-gold text-khmer-burgundy font-moulpali text-xl transition-all hover:scale-105 shadow-[0_0_30px_rgba(212,175,55,0.3)] hover:shadow-[0_0_50px_rgba(212,175,55,0.6)]"
+                whileHover={{ 
+                  scale: 1.08,
+                  boxShadow: "0 0 50px rgba(212, 175, 55, 0.8)",
+                  y: -2
+                }}
+                whileTap={{ scale: 0.95 }}
+                animate={{ 
+                  boxShadow: ["0 0 20px rgba(212,175,55,0.3)", "0 0 35px rgba(212,175,55,0.6)", "0 0 20px rgba(212,175,55,0.3)"]
+                }}
+                transition={{
+                  boxShadow: {
+                    repeat: Infinity,
+                    duration: 2,
+                    ease: "easeInOut"
+                  }
+                }}
+                className="group relative px-10 py-5 overflow-hidden rounded-full bg-gradient-to-r from-[#F3E5AB] via-[#D4AF37] to-[#8B6508] text-khmer-burgundy font-moulpali text-xl transition-all border border-khmer-gold/30 cursor-pointer"
               >
-                <span className="relative z-10 flex items-center gap-3">
-                  បើកលិខិតអញ្ជើញ <ChevronDown className="w-5 h-5 -rotate-90 group-hover:translate-x-1 transition-transform" />
+                {/* Shining golden sweep light */}
+                <motion.div 
+                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent -skew-x-12 w-[150%]"
+                  initial={{ left: "-150%" }}
+                  animate={{ left: "150%" }}
+                  transition={{ 
+                    repeat: Infinity, 
+                    duration: 2.5, 
+                    ease: "linear",
+                    repeatDelay: 1.5
+                  }}
+                />
+                
+                <span className="relative z-10 flex items-center justify-center gap-3 drop-shadow-[0_1px_1px_rgba(255,255,255,0.6)]">
+                  បើកលិខិតអញ្ជើញ 
+                  <motion.span
+                    animate={{ x: [0, 4, 0] }}
+                    transition={{ repeat: Infinity, duration: 1.2, ease: "easeInOut" }}
+                  >
+                    <ChevronDown className="w-5 h-5 -rotate-90 group-hover:translate-x-1 transition-transform" />
+                  </motion.span>
                 </span>
-              </button>
+              </motion.button>
             </motion.div>
           </motion.div>
         )}
@@ -236,7 +276,7 @@ function InvitationContent({ guestName: propGuestName }: { guestName?: string })
               className="relative w-64 h-64 md:w-80 md:h-80 mb-12 p-3 rounded-full border-4 border-khmer-gold shadow-2xl overflow-hidden"
             >
                 <Image 
-                  src="/images/IMG_2456.JPG"
+                  src="/images/IMG_2520.png"
                   alt="Couple" 
                   fill 
                   className="object-cover"
@@ -249,21 +289,21 @@ function InvitationContent({ guestName: propGuestName }: { guestName?: string })
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.7, duration: 1, ease: "easeOut" }}
             >
-              <div className="flex flex-row items-center gap-4 md:gap-8">
+              <div className="flex flex-row items-center justify-center gap-2 sm:gap-4 md:gap-8 w-full max-w-full px-2">
                 <span 
-                  className="font-moulpali text-6xl md:text-8xl bg-gradient-to-b from-[#F3E5AB] via-[#D4AF37] to-[#8B6508] text-transparent bg-clip-text drop-shadow-[0_4px_10px_rgba(0,0,0,0.5)] tracking-wide inline-block pb-6 pt-2 leading-relaxed"
-                  style={{ WebkitTextStroke: '2px #D4AF37' }}
+                  className="font-moulpali text-2xl xs:text-3xl sm:text-5xl md:text-8xl bg-gradient-to-b from-[#F3E5AB] via-[#D4AF37] to-[#8B6508] text-transparent bg-clip-text drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)] tracking-wide inline-block pb-2 md:pb-6 pt-2 leading-relaxed shrink-0"
+                  style={{ WebkitTextStroke: '1px #D4AF37', WebkitTextStrokeWidth: '1px' }}
                 >
-                  ដេត
+                  ម៉ៅវណ្ណ ដេត
                 </span>
-                <span className="font-moulpali text-3xl md:text-5xl text-[#D4AF37] opacity-90 mt-2 md:mt-4 drop-shadow-md">
+                <span className="font-moulpali text-sm xs:text-base sm:text-2xl md:text-5xl text-[#D4AF37] opacity-90 drop-shadow-md shrink-0">
                   និង
                 </span>
                 <span 
-                  className="font-moulpali text-6xl md:text-8xl bg-gradient-to-b from-[#F3E5AB] via-[#D4AF37] to-[#8B6508] text-transparent bg-clip-text drop-shadow-[0_4px_10px_rgba(0,0,0,0.5)] tracking-wide inline-block pb-6 pt-2 leading-relaxed"
-                  style={{ WebkitTextStroke: '2px #D4AF37' }}
+                  className="font-moulpali text-2xl xs:text-3xl sm:text-5xl md:text-8xl bg-gradient-to-b from-[#F3E5AB] via-[#D4AF37] to-[#8B6508] text-transparent bg-clip-text drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)] tracking-wide inline-block pb-2 md:pb-6 pt-2 leading-relaxed shrink-0"
+                  style={{ WebkitTextStroke: '1px #D4AF37', WebkitTextStrokeWidth: '1px' }}
                 >
-                  ពេជ្រ
+                  លឹមស្រី ពេជ្រ
                 </span>
               </div>
             </motion.div>
@@ -436,22 +476,49 @@ function InvitationContent({ guestName: propGuestName }: { guestName?: string })
         </div>
       </section> */}
 
+      {/* Video Memories Section */}
+      <section className="py-40 px-6 bg-white relative z-10 overflow-hidden">
+        <div className="max-w-5xl mx-auto text-center">
+          <motion.div {...fadeIn}>
+            <SectionHeading 
+              title="វីដេអូអនុស្សាវរីយ៍" 
+              subtitle="Our Love Story Video" 
+            />
+          </motion.div>
+
+          <motion.div 
+            {...fadeIn}
+            className="w-full max-w-3xl mx-auto mt-16 rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white bg-black relative"
+          >
+            <video 
+              src="/sounds/IMG_8665.MOV" 
+              controls 
+              playsInline
+              preload="metadata"
+              className="w-full max-h-[600px] object-contain mx-auto"
+              poster="/images/IMG_2520.png"
+            />
+          </motion.div>
+        </div>
+      </section>
+
       {/* Photo Gallery Section (User Images) */}
       <section className="py-40 px-6 bg-[#fcfaf7] relative z-10 overflow-hidden">
         <div className="max-w-6xl mx-auto">
           <motion.div {...fadeIn}>
             <SectionHeading 
-              title="អនុស្សាវរីយ៍" 
+              title="រូបភាពអនុស្សាវរីយ៍" 
               subtitle="Our Beautiful Memories" 
             />
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mt-20">
             {[
-              { img: "/images/IMG_2407.JPG", title: "រូបភាពអនុស្សាវរីយ៍ ១" },
-              { img: "/images/IMG_2410.JPG", title: "រូបភាពអនុស្សាវរីយ៍ ២" },
+              { img: "/images/IMG_8955.JPG", title: "រូបភាពអនុស្សាវរីយ៍ ១" },
+              { img: "/images/IMG_6418.jpg", title: "រូបភាពអនុស្សាវរីយ៍ ២" },
               { img: "/images/IMG_2456.JPG", title: "រូបភាពអនុស្សាវរីយ៍ ៣" },
-              { img: "/images/IMG_2520.png", title: "រូបភាពអនុស្សាវរីយ៍ ៤" }
+              { img: "/images/IMG_2520.png", title: "រូបភាពអនុស្សាវរីយ៍ ៤" },
+              { img: "/images/IMG_2407.JPG", title: "រូបភាពអនុស្សាវរីយ៍ ៤" },
             ].map((item, idx) => (
               <motion.div 
                 key={idx}
@@ -492,7 +559,7 @@ function InvitationContent({ guestName: propGuestName }: { guestName?: string })
             className="aspect-[16/9] md:aspect-[21/9] w-full rounded-[3rem] overflow-hidden shadow-[0_30px_70px_rgba(0,0,0,0.12)] border-[8px] border-khmer-cream group"
           >
              <iframe 
-                src="https://www.google.com/maps?q=11.534336,104.9034752&output=embed"
+                src="https://maps.google.com/maps?q=10.61025,104.1825&z=16&output=embed"
                 className="w-full h-full grayscale group-hover:grayscale-0 transition-all duration-1000 ease-in-out scale-105 group-hover:scale-100" 
                 style={{ border: 0 }} 
                 allowFullScreen={true} 
@@ -502,7 +569,7 @@ function InvitationContent({ guestName: propGuestName }: { guestName?: string })
 
           <div className="mt-12">
             <motion.a 
-              href="https://maps.app.goo.gl/fC1DPnzCQWMbmzZk8"
+              href="https://www.google.com/maps?q=10.61025,104.1825"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
