@@ -382,12 +382,12 @@ function InvitationContent({ guestName: propGuestName }: { guestName?: string })
                 </div>
                 <ul className="space-y-6 font-suwannaphum relative z-10">
                    {[
-                     { time: "០៧:៣០", desc: "ជួបជុំគ្រួសារបងប្អូន ភ្ញៀវកិត្តិយសពិសាអាហារព្រឹក" },
-                     { time: "០៨:០០", desc: "ពិធីហែរជំនូន" },
-                     { time: "០៨:៣០", desc: "ពិធីបំពាក់ចិញ្ចៀន" },
-                     { time: "០៩:០០", desc: "ពិធីសុីស្លាម្លូ" },
-                     { time: "០៩:៣០", desc: "ផ្ទឹមចងដៃពរជ័យ" },
-                     { time: "១០:០០", desc: "ជួបជុំគ្រួសារបងប្អូន ភ្ញៀវកិត្តិយសពិសាអាហារថ្ងៃត្រង់" }
+                    { time: "០៧:៣០", desc: "ជួបជុំគ្រួសារ បងប្អូន និងភ្ញៀវកិត្តិយស ពិសាអាហារពេលព្រឹក" },
+  { time: "០៨:០០", desc: "ពិធីហែជំនូន" },
+  { time: "០៨:៣០", desc: "ពិធីបំពាក់ចិញ្ចៀន" },
+  { time: "០៩:០០", desc: "ពិធីស៊ីស្លាម្លូ" },
+  { time: "០៩:៣០", desc: "ពិធីផ្ទឹម និងចងដៃពរជ័យ" },
+  { time: "១០:០០", desc: "ជួបជុំគ្រួសារ បងប្អូន និងភ្ញៀវកិត្តិយស ពិសាអាហារថ្ងៃត្រង់" }
                    ].map((item, idx) => (
                      <li key={idx} className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 sm:gap-4 group/item border-b border-khmer-gold/5 pb-4 sm:pb-0 sm:border-0">
                         <div className="flex items-center gap-3 shrink-0">
